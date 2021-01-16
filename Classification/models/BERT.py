@@ -6,15 +6,15 @@ from transformers import BertTokenizer, BertModel, BertForSequenceClassification
 
 class Config(object):
 
-    def __init__(self, dataset, task):
+    def __init__(self, dataset):
         self.model_name = 'bert'
-        self.train_path = dataset + '/'+task+'/train.txt'                                
-        self.dev_path = dataset + '/'+task+'/val.txt'                                   
-        self.test_path = dataset + '/'+task+'/test.txt'                                  
+        self.train_path = dataset + '/train.txt'                                
+        self.dev_path = dataset + '/val.txt'                                   
+        self.test_path = dataset + '/test.txt'                                  
         self.class_list = [x.strip() for x in open(
-            dataset + '/'+task+'/class.txt').readlines()]                    
+            dataset + '/class.txt').readlines()]                    
         self.log_path = dataset + '/run/log/' + self.model_name
-        self.save_path = dataset + '/run/saved_dict/' + self.model_name + '_' + task + '.ckpt'   
+        self.save_path = dataset + '/run/saved_dict/' + self.model_name + '.ckpt'   
         self.device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')              
 
         self.require_improvement = 1000   # early stop                                
