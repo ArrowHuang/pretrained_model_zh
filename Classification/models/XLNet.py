@@ -1,6 +1,5 @@
 # coding: UTF-8
 import torch
-import torch.nn as nn
 import transformers
 from transformers import XLNetTokenizer, XLNetForSequenceClassification
 
@@ -34,8 +33,7 @@ class Model(nn.Module):
         super(Model, self).__init__()
         self.xlnet = XLNetForSequenceClassification.from_pretrained(config.xlnet_path,num_labels=config.num_labels)
         for param in self.xlnet.parameters():
-            param.requires_grad = True
-        self.fc = nn.Linear(config.hidden_size, config.num_labels)
+            param.requires_grad = True\
 
     def forward(self, x):
         context = x[0]  
