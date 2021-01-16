@@ -6,7 +6,7 @@ from transformers import XLNetTokenizer, XLNetForSequenceClassification
 
 class Config(object):
 
-    def __init__(self, dataset, task):
+    def __init__(self, dataset):
         self.model_name = 'xlnet'
         self.train_path = dataset + '/train.txt'                                
         self.dev_path = dataset + '/val.txt'                                   
