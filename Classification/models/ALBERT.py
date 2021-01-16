@@ -8,7 +8,7 @@ from transformers import AutoModelForSequenceClassification, BertTokenizer
 
 class Config(object):
 
-    def __init__(self, dataset, task):
+    def __init__(self, dataset):
         self.model_name = 'albert'
         self.train_path = dataset + '/train.txt'                                
         self.dev_path = dataset + '/val.txt'                                   
